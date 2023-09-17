@@ -1,0 +1,11 @@
+[submodule "FreeRTOS-Kernel"]
+	path = FreeRTOS-Kernel
+	url = git@github.com:FreeRTOS/FreeRTOS-Kernel.git
+[submodule "fsp"]
+	path = fsp
+	url = git@github.com:renesas/fsp.git
+	branch = v4.6.0
+[submodule "CMSIS_5"]
+	path = CMSIS_5
+	url = git@github.com:ARM-software/CMSIS_5.git
+	branch = 5.9.0
