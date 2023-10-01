@@ -33,17 +33,6 @@ add_compile_definitions(
   _RENESAS_RA_
 )
 
-# Set compiler flags
-# Generated compiler flags
-#SET(RASC_CMAKE_CXX_FLAGS "-g -mfloat-abi=hard -O0 -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/arm/CMSIS_5/CMSIS/Core/Include -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/api -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/instances -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg/bsp -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen -I ${CMAKE_CURRENT_SOURCE_DIR}/src  -D_RA_CORE=CM33 -D_RENESAS_RA_  -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -mthumb  -std=c99 -MMD -MP -MF <SOURCE>.d -MT <OBJECT>")
-
-#SET(RASC_CMAKE_ASM_FLAGS "-g -mfloat-abi=hard -O0 -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/arm/CMSIS_5/CMSIS/Core/Include -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/api -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/instances -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg/bsp -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen -I ${CMAKE_CURRENT_SOURCE_DIR}/src  -D_RA_CORE=CM33 -D_RENESAS_RA_  -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -mthumb   -x assembler-with-cpp -MMD -MP")
-
-
-#SET(RASC_ASM_FILES "${CMAKE_CURRENT_SOURCE_DIR}/ra_gen/*.asm")
-
-#SET(RASC_CMAKE_C_FLAGS "-g -mfloat-abi=hard -O0 -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/arm/CMSIS_5/CMSIS/Core/Include -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/api -I ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc/instances -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_cfg/fsp_cfg/bsp -I ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen -I ${CMAKE_CURRENT_SOURCE_DIR}/src  -D_RA_CORE=CM33 -D_RENESAS_RA_  -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -mthumb  -std=c99 -MMD -MP -MF <SOURCE>.d -MT <OBJECT>")
-
 
 # Set the path and name of the C, CPP and ASM compilers
 set(CMAKE_C_COMPILER ${CMAKE_FIND_ROOT_PATH}/${TOOLCHAIN_PREFIX}-gcc${BINARY_FILE_EXT})

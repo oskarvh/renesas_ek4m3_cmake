@@ -26,5 +26,8 @@ cp -r temp_bsp/script/* script/.
 cp -r temp_bsp/memory_regions.ld script/.
 cp temp_bsp/buildinfo.json .
 
+# Remove the generated main file
+rm inc/main.c
+
 # Finally, clean up the temporary dir
 #rm -r temp_bsp
