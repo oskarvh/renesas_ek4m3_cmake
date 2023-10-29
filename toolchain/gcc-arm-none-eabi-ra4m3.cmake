@@ -1,6 +1,3 @@
-# Cross complilation toolchain file for EK-RA4M3, which uses the 
-# R7FA4M3 MCU. 
-
 # Cross compilation system information
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
@@ -9,7 +6,7 @@ set(CMAKE_SYSTEM_PROCESSOR arm)
 include(${CMAKE_CURRENT_LIST_DIR}/../config.cmake)
 
 if (NOT CMAKE_FIND_ROOT_PATH)
-message(FATAL_ERROR "Toolchain path not defined. Please set CMAKE_FIND_ROOT_PATH variable in Config.cmake")
+  message(FATAL_ERROR "Toolchain path not defined. Please set CMAKE_FIND_ROOT_PATH variable in Config.cmake")
 endif()
 
 # Switch for Linux or windows
@@ -24,15 +21,6 @@ set(TOOLCHAIN_PREFIX arm-none-eabi)
 
 # Compile to static library 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
-
-# Set project wide definitions
-#add_definitions(-D_RA_CORE=CM33)
-#add_definitions(-D_RENESAS_RA_)
-add_compile_definitions(
-  _RA_CORE=CM33
-  _RENESAS_RA_
-)
-
 
 # Set the path and name of the C, CPP and ASM compilers
 set(CMAKE_C_COMPILER ${CMAKE_FIND_ROOT_PATH}/${TOOLCHAIN_PREFIX}-gcc${BINARY_FILE_EXT})
@@ -61,4 +49,32 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM     NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY     ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE     ONLY)
 
+set(ARM_OPTIONS -mcpu=cortex-m33 -O0 -mfloat-abi=hard -mfpu=fpv5-sp-d16)
+set(COMPILER_WARNINGS -Wall)
+add_compile_options(
+    -g
+    ${ARM_OPTIONS}
+    -fmessage-length=0
+    -funsigned-char
+    -ffunction-sections
+    -fdata-sections
+    -mthumb
+    ${COMPILER_WARNINGS}
+    -MMD
+    -MP
+)
 
+# Link options:
+add_link_options(
+    -g
+    ${ARM_OPTIONS}
+    -fmessage-length=0
+    -funsigned-char
+    -ffunction-sections
+    -fdata-sections
+    -mthumb
+    -Xlinker
+    --gc-sections 
+    -Wl,-Map=${PROJECT_NAME}.map 
+    ${COMPILER_WARNINGS}
+)
